@@ -1097,11 +1097,11 @@ img {vertical-align: middle;}
     <line x1="350" y1="378" x2="71" y2="417" stroke="#F9A655" stroke-width="2" class="pg5"/>
     <line x1="350" y1="378" x2="50" y2="360" stroke="#F9A655" stroke-width="2" class="pg5"/>
     
-    <text x="400" y="200" class="pg6" font-size="12px">The Champion that SKT performs the worst</text>
-    <text x="400" y="213" class="pg6" font-size="12px">agaist is Shen, who they are 0-6 against.</text>
-    <text x="400" y="226" class="pg6" font-size="12px">Shen has a large global presence and is</text>
-    <text x="400" y="239" class="pg6" font-size="12px">used by teams to exploit weak points in</text>
-    <text x="400" y="252" class="pg6" font-size="12px">their opponenents. </text>
+    <text x="400" y="234" class="pg6" font-size="12px">The Champion that SKT performs the worst</text>
+    <text x="400" y="247" class="pg6" font-size="12px">agaist is Shen, who they are 0-6 against.</text>
+    <text x="400" y="260" class="pg6" font-size="12px">Shen has a large global presence and is</text>
+    <text x="400" y="273" class="pg6" font-size="12px">used by teams to exploit weak points in</text>
+    <text x="400" y="286" class="pg6" font-size="12px">their opponenents. </text>
     <line x1="395" y1="265" x2="71" y2="417" stroke="#F9A655" stroke-width="2" class="pg6"/>
    
   </svg>
@@ -1225,6 +1225,19 @@ function showSlides(n) {
     for(var i = 0; i < pg5s.length; i++)
     {
        pg5s[i].style.display = "block";
+    }
+  }
+  
+  var pg6s = document.getElementsByClassName("pg6");
+  if (slideIndex != 6) {
+    for(var i = 0; i < pg6s.length; i++)
+    {
+       pg6s[i].style.display = "none";
+    }
+  } else {
+    for(var i = 0; i < pg6s.length; i++)
+    {
+       pg6s[i].style.display = "block";
     }
   }
   
