@@ -1304,10 +1304,9 @@ var margin = {top: 40, right: 20, bottom: 30, left: 20},
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
-g.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 5) + ")")
+g.append("text")
+      .attr("y", (width/2))
+      .attr("x",(height + margin.top + 15))
       .style("text-anchor", "middle")
       .text("solo Queue Games Played as");
       
