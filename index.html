@@ -240,7 +240,7 @@ function customYAxis(g) {
 
 var all_data = [];
 var data = d3.csv("mydata.csv", function(data) {
-  if (all_data.length) < 3 {
+  if (all_data.length < 3) {
     all_data.push(data);
   }
 });
@@ -266,17 +266,17 @@ function ymap(v) {
 
 var join = d3.select("#viz").selectAll("circle").data(all_data);
 join.attr("cx", function(d) { return xmap(+d.Games_as)})
-                                       .attr("cy", function(d) {return ymap(+d.Winrate_against);})
-                                       .attr("r", function(d) { return 2;})
-                                       .attr("fill", "none")
-                                       .attr("stroke", "black")
-                                       .attr("stroke-width", "2");
+   .attr("cy", function(d) {return ymap(+d.Winrate_against);})
+   .attr("r", function(d) { return 2;})
+   .attr("fill", "none")
+   .attr("stroke", "black")
+   .attr("stroke-width", "2");
 join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
-                                       .attr("cy", function(d) { return ymap(+d.Winrate_against);})
-                                       .attr("r", function(d) { return 2;})
-                                       .attr("fill", "none")
-                                       .attr("stroke", "black")
-                                       .attr("stroke-width", "2");
+                             .attr("cy", function(d) { return ymap(+d.Winrate_against);})
+                             .attr("r", function(d) { return 2;})
+                             .attr("fill", "none")
+                             .attr("stroke", "black")
+                             .attr("stroke-width", "2");
 join.exit().remove();
 
 
