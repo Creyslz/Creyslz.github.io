@@ -238,15 +238,8 @@ function customYAxis(g) {
   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
 }
 
-d3.csv("mydata.csv", function(data) {
-  console.log("all of data");
-  console.log(data);
-  console.log("first entry");
-  console.log(data[1]);
-  console.log("type of");
-  console.log(typeof(data));
-
-});
+var data = d3.csv("mydata.csv");
+console.log(data)
 
 /*
 d3.csv("mydata.csv", function(data) {
