@@ -298,14 +298,14 @@ var short_data =
 
 console.log(short_data);
 var join = d3.select("#viz").selectAll("circle").data(short_data);
-join.attr("cx", function(d) { return x(+d.Games_as)})
-                                       .attr("cy", function(d) {return y(+d.Winrate_against);})
+join.attr("cx", function(d) { return xmap(+d.Games_as)})
+                                       .attr("cy", function(d) {return ymap(+d.Winrate_against);})
                                        .attr("r", function(d) { return 2;})
                                        .attr("fill", "none")
                                        .attr("stroke", "black")
                                        .attr("stroke-width", "2");
-join.enter().append("circle").attr("cx", function(d) { return x(+d.Games_as)})
-                                       .attr("cy", function(d) { return y(+d.Winrate_against);})
+join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
+                                       .attr("cy", function(d) { return ymap(+d.Winrate_against);})
                                        .attr("r", function(d) { return 2;})
                                        .attr("fill", "none")
                                        .attr("stroke", "black")
