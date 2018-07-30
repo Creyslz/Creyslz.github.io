@@ -239,6 +239,13 @@ function customYAxis(g) {
 }
 
 d3.csv("mydata.csv", function(data) {
+  console.log("all of data");
+  console.log(data);
+
+});
+
+/*
+d3.csv("mydata.csv", function(data) {
     // change string (from CSV) into number format
     // wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
   console.log("all of data");
@@ -274,7 +281,7 @@ d3.csv("mydata.csv", function(data) {
                                          .attr("stroke-width", "2");
   join.exit().remove();
 });
-
+*/
 </script>
 
 </body>
