@@ -1067,7 +1067,7 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade" style="display: block" align="center">
   <div class="numbertext" id="numbertext">1 / 6</div>
-  <svg id="legend" style="display: none" width="1000" height="90" align="center">
+  <svg id="legend" style="display: none" width="1000" height="100" align="center">
     <text x="75" y="25" class="l1" font-size="12px">Solo Queue Games Against</text>
     <circle cx="108" cy="35" class="l1" r="1.5" fill="none" stroke-width="2" stroke="#4E79A7" />
     <text x="120" y="41" class="l1" font-size="12px">1</text>
@@ -1425,7 +1425,7 @@ var svgheight = 900;
 
 var svg = d3.select("#viz")
 
-var margin = {top: 10, right: 20, bottom: 40, left: 20},
+var margin = {top: 0, right: 20, bottom: 40, left: 20},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -1496,7 +1496,7 @@ function ymap(v) {
   var yScales = d3.scaleLinear()
     .domain([-.05, 1.05])
     .range([height, 0]);
-  return (yScales(v) + 10);
+  return (yScales(v) + 0);
 }
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 var join = d3.select("#viz").selectAll("circle").data(manual_data);
