@@ -1123,6 +1123,7 @@ var descriptions = ["", "",
 "Since some champions have not been used in the current professional season, they have been filtered out.</p><p>At time of writing, Faker has been subbed out of team SKT in a move considered unexpected by most. Before this move SKT had 4 wins and 7 losses in best of 3 matches against their opponents.  This can be seen in Faker having <0.5 win rates against most champions in competitive matches.</p><p>Interestingly, we find that how often Faker played against a champion in solo queue is roughly proportional to number of times he faced them in the LCK.",
 "<p>With only the champions that SKT has a >=0.5 win rate against, the most notable feature is the relatively low playrates for all of the champions, both in solo queue and in the LCK.</p><p>I hypothesis that these champions are not as strong comparitively in the current game state and teams that choose said champions have a harder time winning in general.</p>",
 "<p>The Champions that SKT have a negative win rate against don't seem to have any trends. This leads to the conclusion that the teams that SKT play against are simply outclassing SKT in terms of skill or team coordination.</p>"];
+console.log(descriptions);
 
 function showSlides(n) {
   console.log(slideIndex)
@@ -1147,7 +1148,7 @@ function showSlides(n) {
     viz.style.display = "block";
   }
   document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6";
-  document.getElementById("descBox").innerHTML = "ok";
+  document.getElementById("descBox").innerHTML = descriptions[slideIndex];
   dots[slideIndex-1].className += " active";
   updateAllElements(0);
 }
