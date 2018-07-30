@@ -1103,8 +1103,8 @@ img {vertical-align: middle;}
     <text x="400" y="273" class="pg6" font-size="12px">used by teams to exploit weak points in</text>
     <text x="400" y="286" class="pg6" font-size="12px">their opponenents. </text>
     <line x1="395" y1="265" x2="71" y2="417" stroke="#F9A655" stroke-width="2" class="pg6"/>
-    
-    
+  </svg>
+  <svg id="legend" style="display: none" width="1000" height="900" align="center">
     <text x="800" y="50" class="l1" font-size="12px">Solo Queue Games Against</text>
     <circle cx="808" cy="58" class="l1" r="1.5" fill="none" stroke-width="2" stroke="#4E79A7" />
     <text x="820" y="66" class="l1" font-size="12px">1</text>
@@ -1114,8 +1114,6 @@ img {vertical-align: middle;}
     <text x="820" y="98" class="l1" font-size="12px">200</text>
     <circle cx="808" cy="106" class="l1" r="8.90" fill="none" stroke-width="2" stroke="#4E79A7" />
     <text x="820" y="114" class="l1" font-size="12px">250</text>
-    
-   
   </svg>
   <br class="essay" style="display: block"">
   <center>
@@ -1181,6 +1179,7 @@ function showSlides(n) {
   var dots = document.getElementsByClassName("dot");
   var essay_bits = document.getElementsByClassName("essay");
   var viz = document.getElementById("viz")
+  var legend = document.getElementById("legend")
   if (n > 6) {slideIndex = 1}    
   if (n < 1) {slideIndex = 6}
   for (i = 0; i < dots.length; i++) {
@@ -1191,11 +1190,13 @@ function showSlides(n) {
         essay_bits[i].style.display = "block"
     }
     viz.style.display = "none";
+    legend.style.display = "none";
   } else {
     for (i = 0; i < essay_bits.length; i++) {
         essay_bits[i].style.display = "none"
     }
     viz.style.display = "block";
+    legend.style.display = "block";
   }
   document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6";
   document.getElementById("descBox").innerHTML = descriptions[slideIndex];
@@ -1489,8 +1490,13 @@ function ymap(v) {
   return (yScales(v) + 40);
 }
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
-var join = d3.select("#viz").selectAll("circle").selectAll("*:not(l1)").data(manual_data);
-
+var join = d3.select("#viz").selectAll("circle").data(manual_data);
+join.attr("cx", function(d) { return xmap(+d.Games_as)})
+   .attr("cy", function(d) {return ymap(+d.Winrate_against);})
+   .attr("r", function(d) { return 2;})
+   .attr("fill", "none")
+   .attr("stroke", "black")
+   .attr("stroke-width", "2");
 join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
                              .attr("cy", function(d) { return ymap(+d.Winrate_against);})
                              .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
@@ -1511,6 +1517,7 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                                        .duration(100)
                                        .style("opacity", 0);
                               });
+join.exit().remove();
 
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 join = d3.select("#viz").selectAll("polygon").data(manual_data);
@@ -1539,7 +1546,7 @@ join.enter().append("polygon").attr("points", function(d) { return getPlusPoints
 join.exit().remove();
 
 function updateAllElements(n) {
-  var join = d3.select("#viz").selectAll("circle").selectAll("*:not(l1)").data(manual_data);
+  var join = d3.select("#viz").selectAll("circle").data(manual_data);
   join.attr("cx", function(d) { return xmap(+d.Games_as)})
        .attr("cy", function(d) { return ymap(+d.Winrate_against);})
        .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
