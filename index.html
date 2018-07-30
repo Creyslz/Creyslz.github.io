@@ -962,7 +962,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 1100px;
   position: relative;
   margin: auto;
 }
@@ -1057,7 +1057,7 @@ img {vertical-align: middle;}
 
 <div class="slideshow-container">
 
-<div class="mySlides fade" style="display: block">
+<div class="mySlides fade" style="display: block" align="center">
   <div class="numbertext" id="numbertext">1 / 6</div>
   <svg id="viz" style="display: none" width="1000" height="900" align="center">
   </svg>
@@ -1189,32 +1189,6 @@ function customYAxis(g) {
   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
 }
 
-var all_data = [];
-d3.csv("mydata.csv", function(data) {
-  if (all_data.length < 3) {
-    all_data.push(data);
-  }
-});
-
-console.log("try again");
-d3.csv("mydata.csv", function(data){
-    console.log(data);
-    console.log("line2");
-});
-console.log("try end");
-
-all_data.forEach(function(d) {
-  d.wins = +d.wins;
-  d.losses = +d.losses;
-  d.winrate = +d.winrate;
-  d.Games_as = +d.Games_as;
-  d.Winrate_against = +d.Winrate_against;
-  d.Games_against = +d.Games_against;
-  console.log(d);
-});
-
-console.log(all_data);
-
 function xmap(v) {
   return (x(v) + 20)
 }
@@ -1236,41 +1210,6 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                              .attr("stroke", "black")
                              .attr("stroke-width", "2");
 join.exit().remove();
-
-
-var short_data = 
-[
-    {
-        "Winrate_against": ".5",
-        "Games_as": "60",
-    },
-    {
-        "Winrate_against": ".4",
-        "Games_as": "50",
-    },
-    {
-        "Winrate_against": ".6",
-        "Games_as": "70",
-    }
-];
-
-console.log(short_data);
-/*
-var join = d3.select("#viz").selectAll("circle").data(short_data);
-join.attr("cx", function(d) { return xmap(+d.Games_as)})
-                                       .attr("cy", function(d) {return ymap(+d.Winrate_against);})
-                                       .attr("r", function(d) { return 2;})
-                                       .attr("fill", "none")
-                                       .attr("stroke", "black")
-                                       .attr("stroke-width", "2");
-join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
-                                       .attr("cy", function(d) { return ymap(+d.Winrate_against);})
-                                       .attr("r", function(d) { return 2;})
-                                       .attr("fill", "none")
-                                       .attr("stroke", "black")
-                                       .attr("stroke-width", "2");
-join.exit().remove();
-*/
 
 
 
