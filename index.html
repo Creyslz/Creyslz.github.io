@@ -1068,11 +1068,17 @@ img {vertical-align: middle;}
 <div class="mySlides fade" style="display: block" align="center">
   <div class="numbertext" id="numbertext">1 / 6</div>
   <svg id="viz" style="display: none" width="1000" height="900" align="center">
-  <text x="100" y="100" id="pg2p1" font-size="12px">Faker has a winrate around 0.5 for</text>
-  <text x="100" y="113" id="pg2p2" font-size="12px">most champions he has played</text>
-  <text x="100" y="126" id="pg2p3" font-size="12px">against many times, though due to</text>
-  <text x="100" y="139" id="pg2p4" font-size="12px">his skill, this value of often above the</text>
-  <text x="100" y="152" id="pg2p5" font-size="12px">0.5 line.</text>
+  <text x="100" y="100" class="pg2" font-size="12px">Faker has a winrate around 0.5 for</text>
+  <text x="100" y="113" class="pg2" font-size="12px">most champions he has played</text>
+  <text x="100" y="126" class="pg2" font-size="12px">against many times, though due to</text>
+  <text x="100" y="139" class="pg2" font-size="12px">his skill, this value of often above the</text>
+  <text x="100" y="152" class="pg2" font-size="12px">0.5 line.</text>
+  <svg id="viz" class="pg2" style="display: none" width="1000" height="900" align="center">
+  <text x="100" y="100" class="pg2" font-size="12px">Faker has a winrate around 0.5 for</text>
+  <text x="100" y="113" class="pg2" font-size="12px">most champions he has played</text>
+  <text x="100" y="126" class="pg2" font-size="12px">against many times, though due to</text>
+  <text x="100" y="139" class="pg2" font-size="12px">his skill, this value of often above the</text>
+  <text x="100" y="152" class="pg2" font-size="12px">0.5 line.</text>
   <line x1="250" y1="165" x2="152" y2="410" stroke="#F9A655" stroke-width="2" />
   </svg>
   <br class="essay" style="display: block"">
@@ -1158,6 +1164,15 @@ function showSlides(n) {
   document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6";
   document.getElementById("descBox").innerHTML = descriptions[slideIndex];
   dots[slideIndex-1].className += " active";
+  
+  var pg2s = document.getElementsByClassName("pg2");
+  if (slideIndex != 2) {
+    for(var i = 0; i < slides.length; i++)
+    {
+       pg2s[i].style.display = "none";
+    }
+  }
+  
   updateAllElements(0);
 }
 
