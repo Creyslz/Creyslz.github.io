@@ -7,7 +7,6 @@
 <html>
 
 <body>
-
     <div id="decoy-svg-container">
     <svg id="decoy_viz" width="0" height="0"></svg>
     </div>
@@ -77,16 +76,21 @@ function updateViz(data)
 
   // Don't forget to update the existing circle elements!
   // That means you need to implement the general update pattern correctly.
-  var svg = d3.select("#svg-container").selectAll("circle").data(data)
-  svg.enter().attr("cx", function(d, i) { return width / 2 + d['x']})
-     .attr("cy", function(d, i) { return width / 2 + d['y']})
-     .attr("r", function(d, i) { return d['r']/2})
-     .attr("fill", "green")
-  svg.exit().remove()
+  var join = d3.select("#viz").selectAll("circle").data(data);
+  join.attr("cx", function(d, i) { return width / 2 + d["x"]})
+               .attr("cy", function(d, i) { return height / 2 + d["y"]})
+               .attr("r", function(d, i) { return d["r"]/2})
+               .attr("fill", "green");
+  join.enter().append("circle")
+               .attr("cx", function(d, i) { return width / 2 + d["x"]})
+               .attr("cy", function(d, i) { return height / 2 + d["y"]})
+               .attr("r", function(d, i) { return d["r"]/2})
+               .attr("fill", "green");
+  join.exit().remove();
 }
+updateViz(data);
 
 </script>
-
 </body>
 
 </html>
