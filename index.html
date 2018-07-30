@@ -1085,8 +1085,17 @@ img {vertical-align: middle;}
     <text x="250" y="326" class="pg4" font-size="12px">(Sejuani, Shen, Tahm Kench, etc.) all</text>
     <text x="250" y="339" class="pg4" font-size="12px">reward coordination, which professional</text>
     <text x="250" y="352" class="pg4" font-size="12px">teams are natually better at.</text>
-    <line x1="350" y1="365" x2="70" y2="418" stroke="#F9A655" stroke-width="2" class="pg4"/>
-    <line x1="350" y1="365" x2="40" y2="357" stroke="#F9A655" stroke-width="2" class="pg4"/>
+    <line x1="350" y1="365" x2="71" y2="417" stroke="#F9A655" stroke-width="2" class="pg4"/>
+    <line x1="350" y1="365" x2="50" y2="360" stroke="#F9A655" stroke-width="2" class="pg4"/>
+    
+    <text x="250" y="300" class="pg5" font-size="12px">The two exceptions here are Sejuani and</text>
+    <text x="250" y="313" class="pg5" font-size="12px">Tahm Kench. Sejuani if often a fall</text>
+    <text x="250" y="326" class="pg5" font-size="12px">back champion when stronger junglers</text>
+    <text x="250" y="339" class="pg5" font-size="12px">are banned out, while tahm Kench is</text>
+    <text x="250" y="352" class="pg5" font-size="12px">used as insurance against over aggressive</text>
+    <text x="250" y="365" class="pg5" font-size="12px">teammates</text>
+    <line x1="350" y1="378" x2="71" y2="417" stroke="#F9A655" stroke-width="2" class="pg5"/>
+    <line x1="350" y1="378" x2="50" y2="360" stroke="#F9A655" stroke-width="2" class="pg5"/>
    
   </svg>
   <br class="essay" style="display: block"">
@@ -1196,6 +1205,19 @@ function showSlides(n) {
     for(var i = 0; i < pg4s.length; i++)
     {
        pg4s[i].style.display = "block";
+    }
+  }
+  
+  var pg5s = document.getElementsByClassName("pg5");
+  if (slideIndex != 5) {
+    for(var i = 0; i < pg5s.length; i++)
+    {
+       pg5s[i].style.display = "none";
+    }
+  } else {
+    for(var i = 0; i < pg5s.length; i++)
+    {
+       pg5s[i].style.display = "block";
     }
   }
   
