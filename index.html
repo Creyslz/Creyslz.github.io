@@ -1284,10 +1284,24 @@ var yAxis = d3.axisRight(yScale)
 
 g.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(customXAxis);
+    .call(customXAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Games Played As");
 
 g.append("g")
-    .call(customYAxis);
+    .call(customYAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Solo Queue Winrate Against");
+
 
 function customXAxis(g) {
   g.call(xAxis);
