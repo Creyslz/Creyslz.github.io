@@ -1161,7 +1161,7 @@ function getElementColor(n) {
     if (n == "null") {
       return "#FFFFFF";
     }
-    return d3.interpolateRdBu(+n * .6 + .2);
+    return d3.interpolateRdBu(+n * .8 + .1);
   }
 }
 
@@ -1192,6 +1192,60 @@ function getElementOpacity(n) {
   }
 }
 
+function getTooltip(d) {
+  if (slideIndex < 3) {
+    return "Champion: " + d.Champion_name
+                        + "<br/>" + "Games against: " + d.Games_against
+                        + "<br/>" + "Games as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3);
+  } else if (slideIndex == 3) {
+    if (d.LCK_games_against == "null") {
+      return "";
+    }
+    return "Champion: " + d.Champion_name
+                        + "<br/>" + "Games against: " + d.Games_against
+                        + "<br/>" + "Games as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3)
+                        + "<br/>" + "LCK games against: " + (+d.LCK_games_against).toFixed(3);
+  } else if (slideIndex == 4) {
+    if (d.LCK_games_against == "null") {
+      return "";
+    }
+    return "Champion: " + d.Champion_name
+                        + "<br/>" + "Games against: " + d.Games_against
+                        + "<br/>" + "Games as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3)
+                        + "<br/>" + "LCK games against: " + (+d.LCK_games_against).toFixed(3)
+                        + "<br/>" + "LCK winrate against: " + (+d.LCK_wr).toFixed(3);
+  } else if (slideIndex == 5) {
+    if (d.LCK_wr == "null") {
+      return "";
+    }
+    if (+d.LCK_wr < 0.5) {
+      return "";
+    }
+    return "Champion: " + d.Champion_name
+                        + "<br/>" + "Games against: " + d.Games_against
+                        + "<br/>" + "Games as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3)
+                        + "<br/>" + "LCK games against: " + (+d.LCK_games_against).toFixed(3)
+                        + "<br/>" + "LCK winrate against: " + (+d.LCK_wr).toFixed(3);
+  } else if (slideIndex == 6) {
+    if (d.LCK_games_against == "null") {
+      return 0;
+    }
+    if (+d.LCK_wr > 0.5) {
+      return 0;
+    }
+    return "Champion: " + d.Champion_name
+                        + "<br/>" + "Games against: " + d.Games_against
+                        + "<br/>" + "Games as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3)
+                        + "<br/>" + "LCK games against: " + (+d.LCK_games_against).toFixed(3)
+                        + "<br/>" + "LCK winrate against: " + (+d.LCK_wr).toFixed(3);
+  }
+
+}
 
 
 var tooltip = d3.select("body").append("div")
@@ -1278,10 +1332,7 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                                   tooltip.transition()
                                        .duration(50)
                                        .style("opacity", .9);
-                                  tooltip.html("Champion: " + d.Champion_name
-                                              + "<br/>" + "Games played against: " + d.Games_against
-                                              + "<br/>" + "Games played as: " + d.Games_as
-                                              + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
+                                  tooltip.html(getTooltip(d))
                                        .style("left", (d3.event.pageX + 5) + "px")
                                        .style("top", (d3.event.pageY + 5) + "px");
                               })
@@ -1307,10 +1358,7 @@ function updateAllElements(n) {
             tooltip.transition()
                  .duration(50)
                  .style("opacity", .9);
-            tooltip.html("Champion: " + d.Champion_name
-                        + "<br/>" + "Games played against: " + d.Games_against
-                        + "<br/>" + "Games played as: " + d.Games_as
-                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
+            tooltip.html(getTooltip(d))
                  .style("left", (d3.event.pageX + 5) + "px")
                  .style("top", (d3.event.pageY + 5) + "px");
         })
