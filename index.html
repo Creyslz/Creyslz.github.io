@@ -1113,32 +1113,6 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
-  console.log(slideIndex)
-  var i;
-  var dots = document.getElementsByClassName("dot");
-  var essay_bits = document.getElementsByClassName("essay");
-  var viz = document.getElementById("viz")
-  if (n > 6) {slideIndex = 1}    
-  if (n < 1) {slideIndex = 6}
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  if (slideIndex == 1) {
-    for (i = 0; i < essay_bits.length; i++) {
-        essay_bits[i].style.display = "block"
-    }
-    viz.style.display = "none"
-  } else {
-    for (i = 0; i < essay_bits.length; i++) {
-        essay_bits[i].style.display = "none"
-    }
-    viz.style.display = "block"
-  }
-  document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6"
-  dots[slideIndex-1].className += " active";
-  updateAllElements(0);
-}
 
 function toggleEssay(n) {
   showEssay = -showEssay + 1
@@ -1332,6 +1306,32 @@ function updateAllElements(n) {
 }
 
 
+function showSlides(n) {
+  console.log(slideIndex)
+  var i;
+  var dots = document.getElementsByClassName("dot");
+  var essay_bits = document.getElementsByClassName("essay");
+  var viz = document.getElementById("viz")
+  if (n > 6) {slideIndex = 1}    
+  if (n < 1) {slideIndex = 6}
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  if (slideIndex == 1) {
+    for (i = 0; i < essay_bits.length; i++) {
+        essay_bits[i].style.display = "block"
+    }
+    viz.style.display = "none"
+  } else {
+    for (i = 0; i < essay_bits.length; i++) {
+        essay_bits[i].style.display = "none"
+    }
+    viz.style.display = "block"
+  }
+  document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6"
+  dots[slideIndex-1].className += " active";
+  updateAllElements(0);
+}
 console.log("WHY2");
 </script>
 
