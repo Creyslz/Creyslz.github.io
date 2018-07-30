@@ -1072,11 +1072,11 @@ img {vertical-align: middle;}
     <circle cx="108" cy="37" class="l1" r="1.5" fill="none" stroke-width="2" stroke="#4E79A7" />
     <text x="120" y="41" class="l1" font-size="12px">1</text>
     <circle cx="108" cy="53" class="l1" r="6" fill="none" stroke-width="2" stroke="#4E79A7" />
-    <text x="120" y="57" class="l1" font-size="12px">100</text>
+    <text x="120" y="57" class="l1" font-size="12px">4</text>
     <circle cx="108" cy="69" class="l1" r="8.14" fill="none" stroke-width="2" stroke="#4E79A7" />
-    <text x="120" y="73" class="l1" font-size="12px">200</text>
+    <text x="120" y="73" class="l1" font-size="12px">8</text>
     <circle cx="108" cy="85" class="l1" r="8.90" fill="none" stroke-width="2" stroke="#4E79A7" />
-    <text x="120" y="89" class="l1" font-size="12px">250</text>
+    <text x="120" y="89" class="l1" font-size="12px">10</text>
     
     <text x="400" y="25" class="l2" font-size="12px">LCK Win Rate</text>
         <linearGradient id="MyGradient">
@@ -1134,7 +1134,7 @@ img {vertical-align: middle;}
     <text x="400" y="247" class="pg6" font-size="12px">agaist is Shen, who they are 0-6 against.</text>
     <text x="400" y="260" class="pg6" font-size="12px">Shen has a large global presence and is</text>
     <text x="400" y="273" class="pg6" font-size="12px">used by teams to exploit weak points in</text>
-    <text x="400" y="286" class="pg6" font-size="12px">their opponenents. </text>
+    <text x="400" y="286" class="pg6" font-size="12px">their opponenents map movements. </text>
     <line x1="395" y1="265" x2="74" y2="397" stroke="#F9A655" stroke-width="2" class="pg6"/>
   </svg>
   <br class="essay" style="display: block"">
@@ -1143,11 +1143,27 @@ img {vertical-align: middle;}
   </center>
   <p class="essay" style="display: block" align="center">
   <font id="fontcolor" color = "white">
-    For my narrative visualization I choose to create an interactive slideshow. The scenes start very general, presenting a bigger picture, before focusing on what I consider more interesting subsets of the data. The first scene is 
+    For my narrative visualization I choose to create an interactive slideshow. The scenes start very general, presenting a bigger picture, before focusing on what I consider more interesting subsets of the data. The layouts of all the scenes are focused on a chart of SKT Faker's winrate against certain champions vs how often plays those champions. A legend is located above the chart, and a my thoughts about the current scene can be found below. Hovering the mouse over individual data points creates a tooltip with the exact values for the datapoint, along with which champion it represents. Some scenes have annotations where I point out  particularly interesting data points, most often due to them being outliers in some way.
     <br/>
-    line 2
+    The chart itself is a scatter plot. The x axis is a linear axis over the range of the data, which has a range of [0, 113]. This range is pretty small and a logrithmic scale would have been needlessly confusing. The y axis is also a linear axis over the range of the data, which is [0, 1] in this case. Since the y axis is measuring a winrate, a linear scale is the only one that makes sense. The size of each mark is dependent on how often SKT Faker played against that champion. This allows a viewer to easily understand the sample size of each point. Later on when marks for Solo Queue and LCK are layered on top of one another, this allows the viewer to see the relationship between how often champions are played in those different environments. I made sure the shapes of the two marks were different enough to tell them apart and to see their relative sizes.
     <br/>
-    line 3
+    The main parameter being changed from scene to scene is the index of the current slide. This index controls many things, including the color/highlighting of data points, the filtering of data points, the color of data points, and various other supporting information (legend, annotations, etc.). The triggers that can change the parameter include clicking on the arrow buttons on either side of the scene to step forward or back, and clicking on one of the 6 dots below the scene that represent the 6 scenes, jumping to the scene that it represents. The dot that represents the current scene being viewed is always darker in color giving the viewer a constant reminder of where in the slideshow they are.
+    <br/>
+    
+    <br/>
+  </font>
+  </p>
+  <p class="scroll_support" style="display: block" align="center">
+  <font id="fontcolor" color = "white">
+    .
+    <br/>
+    .
+    <br/>
+    .
+    <br/>
+    .
+    <br/>
+    .
     <br/>
   </font>
   </p>
