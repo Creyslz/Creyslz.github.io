@@ -1051,6 +1051,13 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
 </style>
 </head>
 <body>
@@ -1138,6 +1145,9 @@ function toggleEssay(n) {
   } else {
     document.getElementById("fontcolor").color = "white"
   }
+}
+
+function getElementColor(n) {
 }
 
 var svgwidth = 1000;
