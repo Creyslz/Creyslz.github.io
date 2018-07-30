@@ -1161,7 +1161,7 @@ function getElementColor(n) {
     if (n == "null") {
       return "#FFFFFF";
     }
-    return d3.interpolateRdBu(n);
+    return d3.interpolateRdBu((+n - .5) / 2 + .5);
   }
 }
 
