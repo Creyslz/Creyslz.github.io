@@ -1189,55 +1189,6 @@ function getElementOpacity(n) {
   }
 }
 
-function updateAllElements(n) {
-  var join = d3.select("#viz").selectAll("circle").data(manual_data);
-  join.attr("cx", function(d) { return xmap(+d.Games_as)})
-       .attr("cy", function(d) { return ymap(+d.Winrate_against);})
-       .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
-       .attr("fill", "none")
-       .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
-       .attr("stroke-width", "2")
-       .on("mouseover", function(d) {
-            tooltip.transition()
-                 .duration(50)
-                 .style("opacity", .9);
-            tooltip.html("Champion: " + d.Champion_name
-                        + "<br/>" + "Games played against: " + d.Games_against
-                        + "<br/>" + "Games played as: " + d.Games_as
-                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
-                 .style("left", (d3.event.pageX + 5) + "px")
-                 .style("top", (d3.event.pageY + 5) + "px");
-        })
-        .on("mouseout", function(d) {
-            tooltip.transition()
-                 .duration(100)
-                 .style("opacity", 0);
-        });
-  join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
-                               .attr("cy", function(d) { return ymap(+d.Winrate_against);})
-                               .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
-                               .attr("fill", "none")
-                               .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
-                               .attr("stroke-width", "2")
-                               .on("mouseover", function(d) {
-                                    tooltip.transition()
-                                         .duration(50)
-                                         .style("opacity", .9);
-                                    tooltip.html("Champion: " + d.Champion_name
-                                                + "<br/>" + "Games played against: " + d.Games_against
-                                                + "<br/>" + "Games played as: " + d.Games_as
-                                                + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
-                                         .style("left", (d3.event.pageX + 5) + "px")
-                                         .style("top", (d3.event.pageY + 5) + "px");
-                                })
-                                .on("mouseout", function(d) {
-                                    tooltip.transition()
-                                         .duration(100)
-                                         .style("opacity", 0);
-                                });
-  join.exit().remove();
-}
-
 
 
 var tooltip = d3.select("body").append("div")
@@ -1332,6 +1283,55 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
 join.exit().remove();
 
 
+
+function updateAllElements(n) {
+  var join = d3.select("#viz").selectAll("circle").data(manual_data);
+  join.attr("cx", function(d) { return xmap(+d.Games_as)})
+       .attr("cy", function(d) { return ymap(+d.Winrate_against);})
+       .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
+       .attr("fill", "none")
+       .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
+       .attr("stroke-width", "2")
+       .on("mouseover", function(d) {
+            tooltip.transition()
+                 .duration(50)
+                 .style("opacity", .9);
+            tooltip.html("Champion: " + d.Champion_name
+                        + "<br/>" + "Games played against: " + d.Games_against
+                        + "<br/>" + "Games played as: " + d.Games_as
+                        + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
+                 .style("left", (d3.event.pageX + 5) + "px")
+                 .style("top", (d3.event.pageY + 5) + "px");
+        })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                 .duration(100)
+                 .style("opacity", 0);
+        });
+  join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
+                               .attr("cy", function(d) { return ymap(+d.Winrate_against);})
+                               .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
+                               .attr("fill", "none")
+                               .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
+                               .attr("stroke-width", "2")
+                               .on("mouseover", function(d) {
+                                    tooltip.transition()
+                                         .duration(50)
+                                         .style("opacity", .9);
+                                    tooltip.html("Champion: " + d.Champion_name
+                                                + "<br/>" + "Games played against: " + d.Games_against
+                                                + "<br/>" + "Games played as: " + d.Games_as
+                                                + "<br/>" + "Winrate against: " + (+d.Winrate_against).toFixed(3))
+                                         .style("left", (d3.event.pageX + 5) + "px")
+                                         .style("top", (d3.event.pageY + 5) + "px");
+                                })
+                                .on("mouseout", function(d) {
+                                    tooltip.transition()
+                                         .duration(100)
+                                         .style("opacity", 0);
+                                });
+  join.exit().remove();
+}
 
 console.log("WHY2");
 </script>
