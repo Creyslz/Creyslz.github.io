@@ -1299,14 +1299,14 @@ var svgheight = 900;
 
 var svg = d3.select("#viz")
 
-var margin = {top: 40, right: 20, bottom: 30, left: 20},
+var margin = {top: 40, right: 20, bottom: 40, left: 20},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
 g.append("text")
       .attr("x", (width/2))
-      .attr("y",(height + 45))
+      .attr("y",(height + 35))
       .style("text-anchor", "middle")
       .text("Solo Queue Games Played as");
       
