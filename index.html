@@ -1150,6 +1150,11 @@ function toggleEssay(n) {
 function getElementColor(n) {
 }
 
+
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+    
 var svgwidth = 1000;
 var svgheight = 900;
 
