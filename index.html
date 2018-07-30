@@ -255,7 +255,6 @@ all_data.forEach(function(d) {
 });
 
 console.log(all_data);
-console.log(typeof(all_data));
 
 function xmap(v) {
   return (x(v) + 20)
@@ -279,7 +278,7 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                                        .attr("stroke-width", "2");
 join.exit().remove();
 
-/*
+
 var short_data = 
 [
     {
@@ -297,6 +296,7 @@ var short_data =
 ];
 
 console.log(short_data);
+/*
 var join = d3.select("#viz").selectAll("circle").data(short_data);
 join.attr("cx", function(d) { return xmap(+d.Games_as)})
                                        .attr("cy", function(d) {return ymap(+d.Winrate_against);})
