@@ -278,8 +278,19 @@ var short_data =
     {
         "Winrate_against": .5,
         "Games_as": 60,
+    },
+    {
+        "Winrate_against": .4,
+        "Games_as": 50,
+    },
+    {
+        "Winrate_against": .6,
+        "Games_as": 70,
+        "Games_as": 70,
     }
 ];
+
+console.log(short_data);
 var join = d3.select("#viz").selectAll("circle").data(short_data);
 join.attr("cx", function(d) { return x(+d.Games_as)})
                                        .attr("cy", function(d) {return y(+d.Winrate_against);})
