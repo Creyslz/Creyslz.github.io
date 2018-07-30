@@ -238,7 +238,7 @@ function customYAxis(g) {
   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
 }
 
-d3.csv("mydata.csv", function(error, data) {
+d3.csv("mydata.csv", function(data) {
     // change string (from CSV) into number format
     // wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
   console.log(typeof(data))
