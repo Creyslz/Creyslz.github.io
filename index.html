@@ -1,114 +1,250 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
 
-body {
-  font: 10px sans-serif;
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: grey;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
 }
 
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #525252;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
 .dot {
-  stroke: #000;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
 </style>
+</head>
 <body>
-<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade" style="display: block">
+  <div class="numbertext" id="numbertext">1 / 6</div>
+  <svg id="viz" style="display: none" width="1000" height="900" align="center">
+  </svg>
+  <br class="essay" style="display: block"">
+  <center>
+  <button onclick="toggleEssay()"  class="essay" style="display: block">About me</button>
+  </center>
+  <p class="essay" style="display: block" align="center">
+  <font id="fontcolor" color = "white">
+    line 1 asdfasdfasdf asdfasdl;kfjas l;df jl;asjd ;fklajs ;dfjk as;dfjk asl;dkf j;lkasf asdf asdf asdfas df asdfwe f awsfasdfl as;klf larhg;aksjdf;laskdf j;lasdjk f;lakjsdf;kla j;sdlfkj a;sdjf ;alksjdf;lka jsd;fjaeo;if ;asdklfj a;sldikfj ;li
+    <br/>
+    line 2
+    <br/>
+    line 3
+    <br/>
+  </font>
+  </p>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+</div>
+
 <script>
+var slideIndex = 1;
+var showEssay = 0;
+showSlides(slideIndex);
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-var x = d3.scale.linear()
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  console.log(slideIndex)
+  var i;
+  var dots = document.getElementsByClassName("dot");
+  var essay_bits = document.getElementsByClassName("essay");
+  var svg = document.getElementById("viz")
+  if (n > 6) {slideIndex = 1}    
+  if (n < 1) {slideIndex = 6}
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  if (slideIndex == 1) {
+    for (i = 0; i < essay_bits.length; i++) {
+        essay_bits[i].style.display = "block"
+    }
+    viz.style.display = "none"
+  } else {
+    for (i = 0; i < essay_bits.length; i++) {
+        console.log(i)
+        essay_bits[i].style.display = "none"
+    }
+    viz.style.display = "block"
+  }
+  document.getElementById("numbertext").innerHTML = slideIndex.toString() + " / 6"
+  dots[slideIndex-1].className += " active";
+}
+
+function toggleEssay(n) {
+  showEssay = -showEssay + 1
+  if (showEssay) {
+    document.getElementById("fontcolor").color = "black"
+  } else {
+    document.getElementById("fontcolor").color = "white"
+  }
+}
+
+var svgwidth = 1000;
+var svgheight = 900;
+
+var svg = d3.select("#viz")
+
+var margin = {top: 40, right: 20, bottom: 20, left: 20},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var formatNumber = d3.format(".1f");
+
+var x = d3.scaleLinear()
+    .domain([0, 120])
     .range([0, width]);
 
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
+    .domain([-.05, 1.05])
     .range([height, 0]);
 
-var color = d3.scale.category10();
+var xAxis = d3.axisBottom(x)
+    .ticks(10);
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+var yAxis = d3.axisRight(y)
+    .tickSize(width)
+    .tickFormat(function(d) {
+      var s = formatNumber(d );
+      return s;
+    });
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");
+g.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(customXAxis);
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+g.append("g")
+    .call(customYAxis);
 
-d3.tsv("data.tsv", function(error, data) {
-  if (error) throw error;
+function customXAxis(g) {
+  g.call(xAxis);
+  g.select(".domain").remove();
+}
 
-  data.forEach(function(d) {
-    d.sepalLength = +d.sepalLength;
-    d.sepalWidth = +d.sepalWidth;
-  });
+function customYAxis(g) {
+  g.call(yAxis);
+  g.select(".domain").remove();
+  g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
+  g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
+}
 
-  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "end")
-      .text("Sepal Width (cm)");
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Sepal Length (cm)")
-
-  svg.selectAll(".dot")
-      .data(data)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", function(d) { return x(d.sepalWidth); })
-      .attr("cy", function(d) { return y(d.sepalLength); })
-      .style("fill", function(d) { return color(d.species); });
-
-  var legend = svg.selectAll(".legend")
-      .data(color.domain())
-    .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-  legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
-
-  legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d; });
-
+d3.csv("mydata.csv", function(data) {
+  console.log(data);
+  return 1;
 });
 
 </script>
+
+</body>
+</html> 
