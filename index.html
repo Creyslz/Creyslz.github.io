@@ -1404,7 +1404,7 @@ join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+
    .attr("fill", "none")
    .attr("stroke", "black")
    .attr("stroke-width", "2");
-join.enter().append("circle").attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), Math.sqrt(+d.Games_against)/2+1)})
+join.enter().append("polygon").attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), Math.sqrt(+d.Games_against)/2+1)})
                              .attr("fill", "none")
                              .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
                              .attr("stroke-opacity", function(d) { return getElementOpacity(d.LCK_wr)})
