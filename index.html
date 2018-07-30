@@ -159,7 +159,7 @@ function showSlides(n) {
   var i;
   var dots = document.getElementsByClassName("dot");
   var essay_bits = document.getElementsByClassName("essay");
-  var svg = document.getElementById("viz")
+  var viz = document.getElementById("viz")
   if (n > 6) {slideIndex = 1}    
   if (n < 1) {slideIndex = 6}
   for (i = 0; i < dots.length; i++) {
@@ -244,9 +244,6 @@ var data = d3.csv("mydata.csv", function(data) {
 
 });
 
-console.log(all_data);
-
-
 all_data.forEach(function(d) {
   d.wins = +d.wins;
   d.losses = +d.losses;
@@ -254,10 +251,10 @@ all_data.forEach(function(d) {
   d.Games_as = +d.Games_as;
   d.Winrate_against = +d.Winrate_against;
   d.Games_against = +d.Games_against;
-  d.LCK_wr = +d.LCK_wr;
-  d.LCK_games_against = +d.LCK_games_against;
   console.log(d);
 });
+
+console.log(all_data);
 
 var join = d3.select("#viz").selectAll("circle").data(all_data);
 join.attr("cx", function(d) { return x(d.Games_as)})
