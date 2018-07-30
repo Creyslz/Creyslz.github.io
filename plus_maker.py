@@ -1,6 +1,6 @@
 cx = 708
-cy = 37
-r = 1.5
+cy = 85
+r = 8.9
 
 print("" + str(cx) + " " + str(cy) + ","
            + str(cx + r) + " " + str(cy) + ","
