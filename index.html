@@ -1166,9 +1166,14 @@ function showSlides(n) {
   
   var pg2s = document.getElementsByClassName("pg2");
   if (slideIndex != 2) {
-    for(var i = 0; i < slides.length; i++)
+    for(var i = 0; i < pg2s.length; i++)
     {
        pg2s[i].style.display = "none";
+    }
+  } else {
+    for(var i = 0; i < pg2s.length; i++)
+    {
+       pg2s[i].style.display = "block";
     }
   }
   
