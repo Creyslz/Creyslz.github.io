@@ -1079,7 +1079,13 @@ img {vertical-align: middle;}
     <text x="120" y="89" class="l1" font-size="12px">250</text>
     
     <text x="200" y="20" class="l2" font-size="12px">LCK Win Rate</text>
-    
+    <defs>
+        <linearGradient id="MyGradient">
+            <stop offset="5%"  stop-color="red"/>
+            <stop offset="95%" stop-color="blue"/>
+        </linearGradient>
+    </defs>
+    <rect fill="url(#MyGradient)" x="210" y="50" width="90" height="30" class="l2"/>
   </svg>
   <svg id="viz" style="display: none" width="1000" height="900" align="center">
     <text x="100" y="100" class="pg2" font-size="12px">Faker has a winrate around 0.5 for</text>
