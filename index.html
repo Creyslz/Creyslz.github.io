@@ -1139,11 +1139,11 @@ img {vertical-align: middle;}
   </svg>
   <br class="essay" style="display: block"">
   <center>
-  <button onclick="toggleEssay()"  class="essay" style="display: block">About me</button>
+  <button onclick="toggleEssay()"  class="essay" style="display: block">About the Visualization</button>
   </center>
   <p class="essay" style="display: block" align="center">
   <font id="fontcolor" color = "white">
-    line 1 asdfasdfasdf asdfasdl;kfjas l;df jl;asjd ;fklajs ;dfjk as;dfjk asl;dkf j;lkasf asdf asdf asdfas df asdfwe f awsfasdfl as;klf larhg;aksjdf;laskdf j;lasdjk f;lakjsdf;kla j;sdlfkj a;sdjf ;alksjdf;lka jsd;fjaeo;if ;asdklfj a;sldikfj ;li
+    For my narrative visualization I choose to create an interactive slideshow. The scenes start very general, presenting a bigger picture, before focusing on what I consider more interesting subsets of the data. The first scene is 
     <br/>
     line 2
     <br/>
@@ -1273,6 +1273,28 @@ function showSlides(n) {
     for(var i = 0; i < pg6s.length; i++)
     {
        pg6s[i].style.display = "block";
+    }
+  }
+  
+  var l2s = document.getElementsByClassName("l2");
+  var l3s = document.getElementsByClassName("l3");
+  if (slideIndex < 4) {
+    for(var i = 0; i < l2s.length; i++)
+    {
+       l2s[i].style.display = "none";
+    }
+    for(var i = 0; i < l3s.length; i++)
+    {
+       l3s[i].style.display = "none";
+    }
+  } else {
+    for(var i = 0; i < l2s.length; i++)
+    {
+       l2s[i].style.display = "block";
+    }
+    for(var i = 0; i < l3s.length; i++)
+    {
+       l3s[i].style.display = "block";
     }
   }
   
