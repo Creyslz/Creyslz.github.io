@@ -1223,7 +1223,7 @@ function getPlusPoints(cx, cy, lck_games) {
   if (lck_games == "null") {
     return "";
   }
-  r = Math.sqrt(lck_games*26 - 25);
+  r = Math.sqrt(lck_games*20);
   return "" + cx + " " + cy + ","
            + (cx + r) + " " + cy + ","
            + cx + " " + cy + ","
@@ -1305,10 +1305,10 @@ var margin = {top: 40, right: 20, bottom: 30, left: 20},
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
 g.append("text")
-      .attr("y", (width/2))
-      .attr("x",(height + margin.top + 15))
+      .attr("x", (width/2))
+      .attr("y",(height + margin.top + 15))
       .style("text-anchor", "middle")
-      .text("solo Queue Games Played as");
+      .text("Solo Queue Games Played as");
       
 g.append("text")
       .attr("transform", "rotate(-90)")
