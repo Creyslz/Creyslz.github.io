@@ -1223,7 +1223,7 @@ function getPlusPoints(cx, cy, lck_games) {
   if (lck_games == "null") {
     return "";
   }
-  r = Math.sqrt(lck_games*27 - 26) + 1;
+  r = Math.sqrt(lck_games*26 - 25);
   return "" + cx + " " + cy + ","
            + (cx + r) + " " + cy + ","
            + cx + " " + cy + ","
@@ -1454,7 +1454,7 @@ function updateAllElements(n) {
   join.exit().remove();
   
   join = d3.select("#viz").selectAll("polygon").data(manual_data);
-  join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), LCK_games_against)})
+  join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), d.LCK_games_against)})
        .attr("fill", "none")
        .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
        .attr("stroke-width", "2")
