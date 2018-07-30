@@ -1208,7 +1208,23 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                              .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1.5;})
                              .attr("fill", "none")
                              .attr("stroke", "#87CEEB")
-                             .attr("stroke-width", "2");
+                             .attr("stroke-width", "2")
+                             .on("mouseover", function(d) {
+                                  tooltip.transition()
+                                       .duration(50)
+                                       .style("opacity", .9);
+                                  tooltip.html("Champion: " + d.Champion_name
+                                              + "<br/>" + "Games played against: " + d.Games_against
+                                              + "<br/>" + "Games played as: " + d.Games_as
+                                              + "<br/>" + "Winrate against: " + d.Winrate_against)
+                                       .style("left", (d3.event.pageX + 5) + "px")
+                                       .style("top", (d3.event.pageY - 28) + "px");
+                              })
+                              .on("mouseout", function(d) {
+                                  tooltip.transition()
+                                       .duration(100)
+                                       .style("opacity", 0);
+                              });
 join.exit().remove();
 
 
