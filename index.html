@@ -1171,7 +1171,21 @@ function getElementOpacity(n) {
     }
     return 1;
   } else if (slideIndex == 5) {
+    if (n == "null") {
+      return 0;
+    }
+    if (+n < 0.5) {
+      return 0;
+    }
+    return 1;
   } else if (slideIndex == 6) {
+    if (n == "null") {
+      return 0;
+    }
+    if (+n > 0.5) {
+      return 0;
+    }
+    return 1;
   }
 }
 
