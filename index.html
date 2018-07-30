@@ -1150,7 +1150,7 @@ function toggleEssay(n) {
 
 function getElementColor(n) {
   if (slideIndex < 3) {
-    return "#6A5ACD";
+    return "#4E79A7";
   } else if (slideIndex == 3) {
   } else if (slideIndex == 4 || slideIndex == 5 || slideIndex == 6) {
   }
@@ -1235,7 +1235,7 @@ join.attr("cx", function(d) { return xmap(+d.Games_as)})
    .attr("stroke-width", "2");
 join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
                              .attr("cy", function(d) { return ymap(+d.Winrate_against);})
-                             .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1.5;})
+                             .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
                              .attr("fill", "none")
                              .attr("stroke", function(d) { return getElementColor(+d.LCK_wr)})
                              .attr("stroke-width", "2")
