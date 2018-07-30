@@ -240,8 +240,9 @@ function customYAxis(g) {
 
 var all_data = [];
 var data = d3.csv("mydata.csv", function(data) {
-  all_data.push(data);
-
+  if (all_data.length) < 3 {
+    all_data.push(data);
+  }
 });
 
 all_data.forEach(function(d) {
