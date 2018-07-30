@@ -238,7 +238,7 @@ function customYAxis(g) {
   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
 }
 
-d3.csv("mydata.csv", function(data) {
+d3.csv("mydata.csv", function(error, data) {
   //console.log(data);
   var join = d3.select("#viz").selectAll("circle").data(data);
   console.log(data[0]["Winrate_against"]);
