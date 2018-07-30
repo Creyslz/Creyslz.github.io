@@ -1219,7 +1219,11 @@ function getPlusOpacity(n) {
   }
 }
 
-function getPlusPoints(cx, cy, r) {
+function getPlusPoints(cx, cy, lck_games) {
+  if (lck_games == "null") {
+    return "";
+  }
+  r = Math.sqrt(lck_games*27 - 26) + 1;
   return "" + cx + " " + cy + ","
            + (cx + r) + " " + cy + ","
            + cx + " " + cy + ","
@@ -1404,7 +1408,7 @@ join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+
    .attr("fill", "none")
    .attr("stroke", "black")
    .attr("stroke-width", "2");
-join.enter().append("polygon").attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), Math.sqrt(+d.Games_against)/2+1)})
+join.enter().append("polygon").attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), d.LCK_games_against)})
                              .attr("fill", "none")
                              .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
                              .attr("stroke-opacity", function(d) { return getPlusOpacity(d.LCK_wr)})
@@ -1450,7 +1454,7 @@ function updateAllElements(n) {
   join.exit().remove();
   
   join = d3.select("#viz").selectAll("polygon").data(manual_data);
-  join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), Math.sqrt(+d.Games_against)/2+1)})
+  join.attr("points", function(d) { return getPlusPoints(xmap(+d.Games_as), ymap(+d.Winrate_against), LCK_games_against)})
        .attr("fill", "none")
        .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
        .attr("stroke-width", "2")
