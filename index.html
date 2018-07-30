@@ -172,7 +172,6 @@ function showSlides(n) {
     viz.style.display = "none"
   } else {
     for (i = 0; i < essay_bits.length; i++) {
-        console.log(i)
         essay_bits[i].style.display = "none"
     }
     viz.style.display = "block"
@@ -241,7 +240,7 @@ function customYAxis(g) {
 
 d3.csv("mydata.csv", function(data) {
   console.log(data);
-  var join = svg.selectAll("circle").data(data);
+  var join = d3.select("#viz").selectAll("circle").data(data);
   join.enter().append("circle").merge(join).attr("cx", function(d) { return x(+d["Games_as"])})
                                          .attr("cy", function(d) { return y(+d["Winrate_against"])})
                                          .attr("r", function(d) { return 2});
