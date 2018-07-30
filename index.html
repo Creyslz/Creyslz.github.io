@@ -1158,6 +1158,9 @@ function getElementColor(n) {
     }
     return "#4E79A7";
   } else if (slideIndex == 4 || slideIndex == 5 || slideIndex == 6) {
+    if (n == "null") {
+      return "#FFFFFF";
+    }
     return d3.interpolateRdBu(n);
   }
 }
