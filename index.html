@@ -256,6 +256,8 @@ all_data.forEach(function(d) {
 
 console.log(all_data);
 console.log(typeof(all_data));
+var ok = ["Saab", "Volvo", "BMW"];
+console.log(typeof(ok));
 
 var join = d3.select("#viz").selectAll("circle").data(all_data);
 join.attr("cx", function(d) { return x(+d.Games_as)})
