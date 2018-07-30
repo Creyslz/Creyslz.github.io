@@ -1490,7 +1490,7 @@ function ymap(v) {
   var yScales = d3.scaleLinear()
     .domain([-.05, 1.05])
     .range([height, 0]);
-  return (yScales(v) + 40);
+  return (yScales(v) + 10);
 }
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 var join = d3.select("#viz").selectAll("circle").data(manual_data);
