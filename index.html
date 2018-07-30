@@ -1068,17 +1068,26 @@ img {vertical-align: middle;}
 <div class="mySlides fade" style="display: block" align="center">
   <div class="numbertext" id="numbertext">1 / 6</div>
   <svg id="viz" style="display: none" width="1000" height="900" align="center">
-  <text x="100" y="100" class="pg2" font-size="12px">Faker has a winrate around 0.5 for</text>
-  <text x="100" y="113" class="pg2" font-size="12px">most champions he has played</text>
-  <text x="100" y="126" class="pg2" font-size="12px">against many times, though due to</text>
-  <text x="100" y="139" class="pg2" font-size="12px">his skill, this value of often above the</text>
-  <text x="100" y="152" class="pg2" font-size="12px">0.5 line.</text>
-  <line x1="250" y1="165" x2="144" y2="410" stroke="#F9A655" stroke-width="2" class="pg2"/>
-  <text x="700" y="300" class="pg2" font-size="12px">Faker has a &lt0.5 win rate against both of his two</text>
-  <text x="700" y="313" class="pg2" font-size="12px">most played champions (Azir, Yasuo). This can be</text>
-  <text x="700" y="326" class="pg2" font-size="12px">Attributed to those champtions being strong in</text>
-  <text x="700" y="339" class="pg2" font-size="12px">the current state of the game.</text>
-  <line x1="850" y1="352" x2="920" y2="475" stroke="#F9A655" stroke-width="2" class="pg2"/>
+    <text x="100" y="100" class="pg2" font-size="12px">Faker has a winrate around 0.5 for</text>
+    <text x="100" y="113" class="pg2" font-size="12px">most champions he has played</text>
+    <text x="100" y="126" class="pg2" font-size="12px">against many times, though due to</text>
+    <text x="100" y="139" class="pg2" font-size="12px">his skill, this value of often above the</text>
+    <text x="100" y="152" class="pg2" font-size="12px">0.5 line.</text>
+    <line x1="190" y1="165" x2="150" y2="410" stroke="#F9A655" stroke-width="2" class="pg2"/>
+    <text x="700" y="300" class="pg2" font-size="12px">Faker has a &lt0.5 win rate against both of his two</text>
+    <text x="700" y="313" class="pg2" font-size="12px">most played champions (Azir, Yasuo). This can be</text>
+    <text x="700" y="326" class="pg2" font-size="12px">Attributed to those champtions being strong in</text>
+    <text x="700" y="339" class="pg2" font-size="12px">the current state of the game.</text>
+    <line x1="850" y1="352" x2="920" y2="475" stroke="#F9A655" stroke-width="2" class="pg2"/>
+    
+    <text x="250" y="300" class="pg4" font-size="12px">The champions with proportionally more</text>
+    <text x="250" y="313" class="pg4" font-size="12px">games in LCK compared to solo queue</text>
+    <text x="250" y="326" class="pg4" font-size="12px">(Sejuani, Shen, Tahm Kench, etc.) all</text>
+    <text x="250" y="339" class="pg4" font-size="12px">reward coordination, which professional</text>
+    <text x="250" y="352" class="pg4" font-size="12px">teams are natually better at.</text>
+    <line x1="350" y1="365" x2="70" y2="418" stroke="#F9A655" stroke-width="2" class="pg4"/>
+    <line x1="350" y1="365" x2="40" y2="357" stroke="#F9A655" stroke-width="2" class="pg4"/>
+   
   </svg>
   <br class="essay" style="display: block"">
   <center>
@@ -1174,6 +1183,19 @@ function showSlides(n) {
     for(var i = 0; i < pg2s.length; i++)
     {
        pg2s[i].style.display = "block";
+    }
+  }
+  
+  var pg4s = document.getElementsByClassName("pg4");
+  if (slideIndex != 4) {
+    for(var i = 0; i < pg4s.length; i++)
+    {
+       pg4s[i].style.display = "none";
+    }
+  } else {
+    for(var i = 0; i < pg4s.length; i++)
+    {
+       pg4s[i].style.display = "block";
     }
   }
   
