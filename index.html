@@ -1152,6 +1152,10 @@ function getElementColor(n) {
   if (slideIndex < 3) {
     return "#4E79A7";
   } else if (slideIndex == 3) {
+    if (n == "null") {
+      return "#C5E6F7";
+    }
+    return "#4E79A7";
   } else if (slideIndex == 4 || slideIndex == 5 || slideIndex == 6) {
   }
 }
@@ -1237,7 +1241,7 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                              .attr("cy", function(d) { return ymap(+d.Winrate_against);})
                              .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
                              .attr("fill", "none")
-                             .attr("stroke", function(d) { return getElementColor(+d.LCK_wr)})
+                             .attr("stroke", function(d) { return getElementColor(d.LCK_wr)})
                              .attr("stroke-width", "2")
                              .on("mouseover", function(d) {
                                   tooltip.transition()
