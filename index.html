@@ -1261,7 +1261,22 @@ var margin = {top: 40, right: 20, bottom: 20, left: 20},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+    
+g.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("solo Queue Games Played as");
+      
+g.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Solo Queue Winrate Against");     
+      
 var formatNumber = d3.format(".1f");
 
 var xScale = d3.scaleLinear()
@@ -1285,22 +1300,10 @@ var yAxis = d3.axisRight(yScale)
 g.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(customXAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "end")
-      .text("Games Played As");
+    .append("text");
 
 g.append("g")
-    .call(customYAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Solo Queue Winrate Against");
+    .call(customYAxis);
 
 
 function customXAxis(g) {
