@@ -1490,12 +1490,7 @@ function ymap(v) {
 }
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 var join = d3.select("#viz").selectAll("circle").selectAll("*:not(l1)").data(manual_data);
-join.attr("cx", function(d) { return xmap(+d.Games_as)})
-   .attr("cy", function(d) {return ymap(+d.Winrate_against);})
-   .attr("r", function(d) { return 2;})
-   .attr("fill", "none")
-   .attr("stroke", "black")
-   .attr("stroke-width", "2");
+
 join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)})
                              .attr("cy", function(d) { return ymap(+d.Winrate_against);})
                              .attr("r", function(d) { return Math.sqrt(+d.Games_against)/2+1;})
@@ -1516,7 +1511,6 @@ join.enter().append("circle").attr("cx", function(d) { return xmap(+d.Games_as)}
                                        .duration(100)
                                        .style("opacity", 0);
                               });
-join.exit().remove();
 
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 join = d3.select("#viz").selectAll("polygon").data(manual_data);
