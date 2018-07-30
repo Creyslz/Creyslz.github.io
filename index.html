@@ -241,6 +241,8 @@ function customYAxis(g) {
 d3.csv("mydata.csv", function(data) {
   console.log(data);
   var join = d3.select("#viz").selectAll("circle").data(data);
+  console.log(data[0]["Winrate_against"])
+  console.log(data[0]["Games_as"])
   join.attr("cx", function(d) { return x(+d["Games_as"])})
                                          .attr("cy", function(d) { return y(+d["Winrate_against"])})
                                          .attr("r", function(d) { return 2})
