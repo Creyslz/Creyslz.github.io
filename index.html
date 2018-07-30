@@ -1207,18 +1207,18 @@ var margin = {top: 40, right: 20, bottom: 20, left: 20},
 
 var formatNumber = d3.format(".1f");
 
-var x = d3.scaleLinear()
+var xScale = d3.scaleLinear()
     .domain([0, 120])
     .range([0, width]);
 
-var y = d3.scaleLinear()
+var yScale = d3.scaleLinear()
     .domain([-.05, 1.05])
     .range([height, 0]);
 
-var xAxis = d3.axisBottom(x)
+var xAxis = d3.axisBottom(xScale)
     .ticks(10);
 
-var yAxis = d3.axisRight(y)
+var yAxis = d3.axisRight(yScale)
     .tickSize(width)
     .tickFormat(function(d) {
       var s = formatNumber(d );
@@ -1245,10 +1245,10 @@ function customYAxis(g) {
 }
 
 function xmap(v) {
-  return (x(v) + 20)
+  return (xScale(v) + 20)
 }
 function ymap(v) {
-  return (y(v) + 40)
+  return (yScale(v) + 40)
 }
 //Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 var join = d3.select("#viz").selectAll("circle").data(manual_data);
