@@ -239,11 +239,18 @@ function customYAxis(g) {
 }
 
 var all_data = [];
-var data = d3.csv("mydata.csv", function(data) {
+d3.csv("mydata.csv", function(data) {
   if (all_data.length < 3) {
     all_data.push(data);
   }
 });
+
+console.log("try again");
+d3.csv("mydata.csv", function(data){
+    console.log(data);
+    console.log("line");
+});
+console.log("try end");
 
 all_data.forEach(function(d) {
   d.wins = +d.wins;
