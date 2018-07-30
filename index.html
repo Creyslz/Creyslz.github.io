@@ -238,8 +238,13 @@ function customYAxis(g) {
   g.selectAll(".tick text").attr("x", 4).attr("dy", -4);
 }
 
-var data = d3.csv("mydata.csv");
-console.log(data)
+var all_data = [];
+var data = d3.csv("mydata.csv", function(data) {
+  all_data.append(data);
+
+});
+
+console.log(all_data);
 
 /*
 d3.csv("mydata.csv", function(data) {
