@@ -1,4 +1,4 @@
-Champion,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
+Champion_name,wins,losses,winrate,Games_as,Winrate_against,Games_against,LCK_wr,LCK_games_against
 Galio,7,2,0.7777777777777778,9,0.5306122448979592,49,0.0,1
 Ornn,3,2,0.6,5,0.7272727272727273,33,0.5,2
 XinZhao,1,2,0.3333333333333333,3,0.4935064935064935,77,0.0,1
